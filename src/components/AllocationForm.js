@@ -9,6 +9,11 @@ const AllocationForm = (props) => {
     const [action, setAction] = useState('');
 
     const submitEvent = () => {
+        if (name && action === "Reduce") {
+            alert("You cannot reduce the budget value lower than the spending.");
+            return;
+        }
+    
 
         if (cost > remaining) {
             alert("The value cannot exceed remaining funds £" + remaining);
