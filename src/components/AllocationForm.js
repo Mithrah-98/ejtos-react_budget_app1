@@ -10,11 +10,11 @@ const AllocationForm = (props) => {
 
     const submitEvent = () => {
 
-            if(cost > remaining) {
-                alert("The value cannot exceed remaining funds  £"+remaining);
-                setCost("");
-                return;
-            }
+        if (cost > remaining) {
+            alert("The value cannot exceed remaining funds £" + remaining);
+            setCost("");
+            return;
+        }
 
         const expense = {
             name: name,
@@ -25,6 +25,7 @@ const AllocationForm = (props) => {
                 type: 'RED_EXPENSE',
                 payload: expense,
             });
+
         } else {
                 dispatch({
                     type: 'ADD_EXPENSE',
@@ -44,7 +45,7 @@ const AllocationForm = (props) => {
                   <select className="custom-select" id="inputGroupSelect01" onChange={(event) => setName(event.target.value)}>
                         <option defaultValue>Choose...</option>
                         <option value="Marketing" name="marketing"> Marketing</option>
-                <option value="Sales" name="sales">Sales</option>
+<option value="Sales" name="sales">Sales</option>
                 <option value="Finance" name="finance">Finance</option>
                 <option value="HR" name="hr">HR</option>
                 <option value="IT" name="it">IT</option>
@@ -58,8 +59,7 @@ const AllocationForm = (props) => {
                         <option defaultValue value="Add" name="Add">Add</option>
                 <option value="Reduce" name="Reduce">Reduce</option>
                   </select>
-
-                  <input
+<input
     required='required'
     type='text'  // Change the type from 'number' to 'text'
     pattern='^[0-9]+$'  // Add the pattern attribute to allow only numeric values
@@ -81,4 +81,3 @@ const AllocationForm = (props) => {
 };
 
 export default AllocationForm;
-
