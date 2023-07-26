@@ -24,8 +24,7 @@ const ExpenseItem = (props) => {
         });
 
     }
-
-    return (
+return (
         <tr>
         <td>{props.name}</td>
         <td>£{props.cost}</td>
