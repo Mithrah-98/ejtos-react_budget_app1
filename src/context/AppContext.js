@@ -4,6 +4,7 @@ import React, { createContext, useReducer } from 'react';
 export const AppReducer = (state, action) => {
     let budget = 0;
     switch (action.type) {
+        
         case 'ADD_EXPENSE':
             let total_budget = 0;
             total_budget = state.expenses.reduce(
@@ -59,7 +60,9 @@ export const AppReducer = (state, action) => {
             };
         case 'SET_BUDGET':
             action.type = "DONE";
-            state.budget = action.payload;
+           
+            const newBudget = Math.min(action.payload, 20000);
+            state.budget = newBudget;
 
             return {
                 ...state,
@@ -75,10 +78,9 @@ export const AppReducer = (state, action) => {
             return state;
     }
 };
-
 // 1. Sets the initial state when the app loads
 const initialState = {
-    budget: 2000,
+    budget: 20000,
     expenses: [
         { id: "Marketing", name: 'Marketing', cost: 50 },
         { id: "Finance", name: 'Finance', cost: 300 },
@@ -103,7 +105,8 @@ export const AppProvider = (props) => {
             const totalExpenses = state.expenses.reduce((total, item) => {
             return (total = total + item.cost);
         }, 0);
-        remaining = state.budget - totalExpenses;
+
+    remaining = state.budget - totalExpenses;
     }
 
     return (
