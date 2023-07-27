@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { TiDelete } from 'react-icons/ti';
 import { AppContext } from '../context/AppContext';
-import './styles.css'; // Import the styles.css file
+import '../styles.css'; // Import the styles.css file
 
 const ExpenseItem = (props) => {
     const { dispatch } = useContext(AppContext);
