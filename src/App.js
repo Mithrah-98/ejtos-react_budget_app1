@@ -34,8 +34,9 @@ const App = () => {
                             <div className='input-group-prepend'>
                                 <label className='input-group-text'>Currency:</label>
                             </div>
+                            {/* Apply the custom-dropdown class to the select element */}
                             <select
-                                className='custom-select'
+                                className='form-select custom-dropdown'
                                 value={currency}
                                 onChange={handleCurrencyChange}
                             >
@@ -44,7 +45,8 @@ const App = () => {
                                 <option value='€'>€ Euro</option>
                                 <option value='₹'>₹ Rupee</option>
                             </select>
-                        </div> </div>
+                        </div>
+                    </div>
                 </div>
     <h3 className='mt-3'>Allocation</h3>
                 <div className='row '>
