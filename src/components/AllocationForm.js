@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const AllocationForm = (props) => {
-    const { dispatch,remaining  } = useContext(AppContext);
+    const { dispatch,remaining ,currency } = useContext(AppContext);
 
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
@@ -64,13 +64,20 @@ const AllocationForm = (props) => {
                         <option defaultValue value="Add" name="Add">Add</option>
                 <option value="Reduce" name="Reduce">Reduce</option>
                   </select>
+                 
+                  <div className="input-group-prepend" style={{ marginLeft: '2rem' }}>
+    <label className="input-group-text" htmlFor="inputGroupSelect02">
+         ({currency})
+    </label>
+</div>
+                  
 <input
     required='required'
     type='text'  // Change the type from 'number' to 'text'
     pattern='^[0-9]+$'  // Add the pattern attribute to allow only numeric values
     id='cost'
     value={cost}
-    style={{ marginLeft: '2rem', size: 10 }}
+    style={{ size: 10 }}
     onChange={(event) => setCost(event.target.value)}
 />
 
